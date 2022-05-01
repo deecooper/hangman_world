@@ -18,7 +18,8 @@ SHEET = GSPREAD_CLIENT.open('high_scores_hangman')
 high_scores = SHEET.worksheet('highscores')
 
 data = high_scores.get_all_values()
-print(data)
+
+
  # https://www.youtube.com/watch?v=5x6iAKdJB6U
 
 def get_word():
@@ -26,8 +27,68 @@ def get_word():
         word = f.readlines()
     word_choice = random.choice(word)
     return word_choice
+    random_word = get_word()
+    print(random_word)
+
+
+def play_game():
+    name = input("input your name")
+    print(f"Hello {name} welcome to hangman world")
+    get_word()
+
   
 
 
-random_word = get_word()
-print(random_word)
+
+
+def play_game():
+    name = input("input your name:  ")
+    print(f"Hello {name} welcome to hangman world")
+    get_word()
+
+
+
+def welcome():
+    """
+    This function gives the user the option to play the game, read instructions, 
+    look at the high scores and exit the game
+    """
+    while True:
+        welcome_msg = "Hello and welcome to Hangman\
+        World please select one of the following \
+        options by typing in the number beside your\
+        selection into the answer field" 
+        print(welcome_msg)
+        play = "1. Play Game"
+        print(play)
+        instructions = "2. Instructions"
+        print(instructions)
+        high_scores = "3. High Scores"
+        print(high_scores)
+        quit ="4. Quit"
+        print(quit)
+        start_choice = input("Enter your answer here 1,2,3,4: ")
+        if start_choice == "1":
+            
+            print("You have choose play game")
+            play_game()
+            break
+        elif start_choice == "2":
+    
+            print("Hangman World is a word guessing game and as the\
+            name suggests the user will be asked to guess the name of the\
+            place in the world which the computer has chosen")
+        elif start_choice == "3":
+            print(data)
+        elif start_choice == "4":
+            print("quitting game bye")
+        else:
+            print("you have not choose one of the selections\
+            please try again")
+
+    
+
+welcome()
+
+
+
