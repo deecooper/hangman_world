@@ -1,5 +1,6 @@
 # Love Sandwiches
 import gspread
+import random
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -18,3 +19,15 @@ high_scores = SHEET.worksheet('highscores')
 
 data = high_scores.get_all_values()
 print(data)
+ # https://www.youtube.com/watch?v=5x6iAKdJB6U
+
+def get_word():
+    with open("words.txt", "r") as f:
+        word = f.readlines()
+    word_choice = random.choice(word)
+    return word_choice
+  
+
+
+random_word = get_word()
+print(random_word)

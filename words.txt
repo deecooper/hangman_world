@@ -1,0 +1,48 @@
+words =
+europe 
+america 
+south america 
+africa
+austraila
+asia
+antartica
+ireland
+england
+france 
+germany
+spain
+portugal
+hungary 
+belgium
+sweeden
+norway
+finland
+the netherlands
+italy
+bulgaria
+luxembourg
+morocco
+libya
+egypt
+sudan
+south africa
+chad
+mali
+nigeria
+kenya
+ethopia
+angola
+china
+india
+japan
+indonesia
+thailand
+the philippines
+south korea
+north korea
+sinapore
+texas
+florida
+california
+washington
+new york
