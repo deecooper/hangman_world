@@ -1,6 +1,6 @@
+import random
 # Love Sandwiches
 import gspread
-import random
 from google.oauth2.service_account import Credentials
 
 SCOPE = [
@@ -23,26 +23,18 @@ data = high_scores.get_all_values()
  # https://www.youtube.com/watch?v=5x6iAKdJB6U
 
 def get_word():
+    """
+    This function gets the random word from the words.txt file"""
     with open("words.txt", "r") as f:
         word = f.readlines()
     word_choice = random.choice(word)
     return word_choice
-    random_word = get_word()
-    print(random_word)
-
+    
+random_word = get_word()
+print(random_word)
 
 def play_game():
     name = input("input your name")
-    print(f"Hello {name} welcome to hangman world")
-    get_word()
-
-  
-
-
-
-
-def play_game():
-    name = input("input your name:  ")
     print(f"Hello {name} welcome to hangman world")
     get_word()
 
@@ -50,8 +42,8 @@ def play_game():
 
 def welcome():
     """
-    This function gives the user the option to play the game, read instructions, 
-    look at the high scores and exit the game
+    This function gives the user the option to play the game,
+    read instructions, look at the high scores and exit the game
     """
     while True:
         welcome_msg = "Hello and welcome to Hangman\
@@ -89,6 +81,5 @@ def welcome():
     
 
 welcome()
-
 
 
