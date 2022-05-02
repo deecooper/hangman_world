@@ -28,13 +28,25 @@ def get_word():
     with open("words.txt", "r") as f:
         word = f.readlines()
     word_choice = random.choice(word)
-    return word_choice
-    
-random_word = get_word()
-print(random_word)
+    return word_choice.upper()
+    #random_word = get_word()
+    #print(random_word)
+
+def hangman_word(word_choice):
+    #https://www.youtube.com/watch?v=m4nEnsavl6w
+    """
+    This function return the word as underscores for the user to guess the word
+    """
+    word_completion = "_" + len(word_choice)
+    guessed = False
+    letters_guessed = []
+    words_guessed = []
+    tries = 8
+    print(tries)
+    print(word_completion)
 
 def play_game():
-    name = input("input your name")
+    name = input("input your name:  ")
     print(f"Hello {name} welcome to hangman world")
     get_word()
 
@@ -83,3 +95,6 @@ def welcome():
 welcome()
 
 
+
+
+    
