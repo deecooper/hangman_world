@@ -17,6 +17,75 @@ def play_game():
     print("----------------------------")
     word = get_word()
 
+    for index in word:
+        print('_', end = ' ')
+        playing = True
+        letters_guessed = ''
+        chances = len(word) + 2
+        correct = 0
+        is_correct = False
+
+    try:
+        while (chances != 0) and is_correct = False:
+            print("enter another letter")
+            chances -= 1
+
+            try:
+                guess = str(input('Enter a letter to guess:  '))
+            except:
+                print('Only a letter wiseguy')
+                continue
+
+            if not guess.isalpha():
+                print('Enter a letter!')
+                continue
+            
+            elif guess in letters_guessed:
+                print('You already guessed this letter wiseguy!!')
+                print(letters_guessed)
+                continue
+
+            # guessed letter is correct
+
+            if guess in word:
+                letter_appears = word.count(guess)
+                for _ in range(letter_appears):
+                    letter guessed += guess
+
+            #print the word
+            for char in word:
+                if char in letters_guessed and (Counter(letters_guessed)) != Counter(word)):
+                    print(char, end ' ')
+                    correct += 1
+                elif (Counter(letters_guessed)) == Counter(word)):
+                    print('The word is: ', end = ' ')
+                    print(word)
+                    is_correct = True
+                    play_again()
+                    break
+                    break
+                else:
+                    print('_', end = ' ')
+
+        # Player has ran out of chances
+
+        if chances <= 0 and (Counter(letter_guessed) != Counter(word)):
+            print()
+            print('You lost loser')
+            print(f'The word was {word}')
+            play_again()
+    
+    except KeyboardInterrupt:
+        print('Bye bye')
+        exit()
+
+
+
+
+
+
+
+
 def hangman_word(word_choice):
     #https://www.youtube.com/watch?v=m4nEnsavl6w
     """
