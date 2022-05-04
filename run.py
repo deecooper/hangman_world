@@ -1,47 +1,34 @@
 import random
-# Love Sandwiches
-import gspread
-from google.oauth2.service_account import Credentials
-
-SCOPE = [
-    "https://www.googleapis.com/auth/spreadsheets",
-    "https://www.googleapis.com/auth/drive.file",
-    "https://www.googleapis.com/auth/drive"
-    ]
-
-CREDS = Credentials.from_service_account_file('creds.json')
-SCOPED_CREDS = CREDS.with_scopes(SCOPE)
-GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
-SHEET = GSPREAD_CLIENT.open('high_scores_hangman')
-
-
-high_scores = SHEET.worksheet('highscores')
-
-data = high_scores.get_all_values()
 
 
  # https://www.youtube.com/watch?v=5x6iAKdJB6U
 
 def get_word():
-    """
-    This function gets the random word from the words.txt file
-    """
-    with open("words.txt", "r") as f:
-        word = f.readlines()
-    word_choice = random.choice(word)
-    return word_choice.upper
+    """ Returns a secret word to guess """
+    word_list = """europe america africa australia asia antartica ireland\
+         england russia china india japan korea spain"""
+    word_list = word_list.split(' ')
+    chosen_word = random.choice(word_list)
+    return chosen_word
+
+def play_game():
+    name = input("Enter your name:  ")
+    print(f"Hello {name} welcome to Hangman World")
+    print("----------------------------")
+    word = get_word()
 
 def hangman_word(word_choice):
     #https://www.youtube.com/watch?v=m4nEnsavl6w
     """
     This function return the word as underscores for the user to guess the word
     """
+    
     word_completion = "_" * len(word_choice)
     guessed = False
     letters_guessed = []
     words_guessed = []
     guessmade = ''
-    tries = 8
+    tries = 9
     print("Lets Play")
     print("----------------------")
     print(word_completion)
@@ -172,34 +159,32 @@ def hangman_stages(tries):
 
     
 
-"""
 
-def play_game():
+
+def welcome_msg():
+    """
+    This function allows users to enter their name into the input field
+    """
     name = input("Enter your name:  ")
     print(f"Hello {name} welcome to Hangman World")
     print("----------------------------")
+    play_game()
 
-"""
+
+
     
     #try statement here for strings
 
-def main():
-    word_choice = get_word()
-    hangman_word(word_choice)
-
-main()
 
 
-"""
-play_game()
 
-"""
-"""
+
+
 def welcome():
-    
+    """
     This function gives the user the option to play the game,
     read instructions, look at the high scores and exit the game
-    
+    """
     while True:
         welcome_msg = "Hello and welcome to Hangman\
         World please select one of the following \
@@ -219,7 +204,7 @@ def welcome():
         
         if start_choice == "1":
             print("You have choose play game")
-            play_game()
+            word = get_word()
             break
         elif start_choice == "2":
     
@@ -241,5 +226,3 @@ def welcome():
     
 
 welcome()
-
-"""
