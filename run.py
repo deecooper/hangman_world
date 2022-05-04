@@ -15,11 +15,12 @@ def play_game():
     print(f"Hello {name} welcome to Hangman World")
     print("----------------------------")
     word = get_word()
+    guessed_letters = []
 
     for index in word:
         print('_', end = ' ')
         playing = True
-        letters_guessed = ''
+        letters = ''
         chances = len(word) + 3
         correct = 0
         is_correct = False
@@ -41,9 +42,12 @@ def play_game():
                 print('Enter a letter!')
                 continue
             
-            elif guess in letters_guessed:
+            elif guess in letters:
                 print('You already guessed this letter wiseguy!!')
-                print(letters_guessed)
+                guessed_letters.append(letters)
+                print(guessed_letters)
+
+                
                 continue
 
             # guessed letter is correct
@@ -51,16 +55,18 @@ def play_game():
             if guess in word:
                 letter_appears = word.count(guess)
                 for _ in range(letter_appears):
-                    letters_guessed += guess
+                    letters += guess
+                    print('Well done')
 
             #print the word
             for char in word:
-                if char in letters_guessed and (Counter(letters_guessed) != Counter(word)):
+                if char in letters and (Counter(letters) != Counter(word)):
                     print(char, end = ' ')
                     correct += 1
-                elif (Counter(letters_guessed) == Counter(word)):
+                elif (Counter(letters) == Counter(word)):
                     print('The word is: ', end = ' ')
                     print(word)
+                    print('Congratulations')
                     is_correct = True
                     play_again()
                     break
@@ -70,7 +76,7 @@ def play_game():
 
         # Player has ran out of chances
 
-        if chances <= 0 and (Counter(letters_guessed) != Counter(word)):
+        if chances <= 0 and (Counter(letters) != Counter(word)):
             print()
             print('You lost loser')
             print(f'The word was {word}')
@@ -119,7 +125,7 @@ def welcome():
         options by typing a number. Type 1 for play game,\
         2 for instructions, 3 for exit"
         print(welcome_msg)
-        print("_______________________________________")
+        print("-----------------------------")
         play = "1. Play Game"
         print(play)
         instructions = "2. Instructions"
@@ -133,9 +139,9 @@ def welcome():
             play_game()
             break
         elif start_choice == "2":
-            print("------------------------------")
+            print("-----------------------------")
             print("\n")
-            print("Hangman World is a word guessing game and as the\
+            print("Instructions \n Hangman World is a word guessing game and as the\
             name suggests the player will be asked to guess the name of the\
             place in the world which the computer has chosen. The player will\
             have eight attempts to guess the word before they are hanged. Good Luck!\n")
