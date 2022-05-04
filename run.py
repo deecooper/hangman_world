@@ -3,17 +3,21 @@ from collections import Counter
 
 def get_word():
     """ Returns a secret word to guess """
-    word_list = """europe america africa australia asia antartica ireland\
-         england russia china india japan korea spain"""
+    word_list = """europe america africa australia asia antartica 
+    ireland england russia china india japan korea spain italy 
+    portugal france thailand turkmenistan singapore brazil """
     word_list = word_list.split(' ')
     chosen_word = random.choice(word_list)
     return chosen_word
 
-
-def play_game():
+def name():
     name = input("Enter your name:  ")
     print(f"Hello {name} welcome to Hangman World")
+    print("Lets Begin!")
     print("----------------------------")
+    play_game()
+
+def play_game():
     word = get_word()
     guessed_letters = []
 
@@ -78,7 +82,7 @@ def play_game():
 
         if chances <= 0 and (Counter(letters) != Counter(word)):
             print()
-            print('You lost loser')
+            print('You lost You have been hanged!!!')
             print(f'The word was {word}')
             print('''  
                        ---------
@@ -120,10 +124,12 @@ def welcome():
     """
     
     while True:
-        welcome_msg = "Hello and welcome to Hangman\
-        World please select one of the following \
-        options by typing a number. Type 1 for play game,\
-        2 for instructions, 3 for exit"
+        welcome_msg = """ 
+Hello and welcome to Hangman World please select one of 
+the following options by typing a number (1,2,3)
+Type 1 to start the game, 2 for the Instructions 
+and 3 for exit
+        """
         print(welcome_msg)
         print("-----------------------------")
         play = "1. Play Game"
@@ -135,18 +141,21 @@ def welcome():
         start_choice = input("Enter your answer here 1,2,3: ")
         
         if start_choice == "1":
-            print("You have choose play game")
+            print("You have selected Play Game")
             play_game()
             break
         elif start_choice == "2":
             print("-----------------------------")
             print("\n")
-            print("Instructions \n Hangman World is a word guessing game and as the\
-            name suggests the player will be asked to guess the name of the\
-            place in the world which the computer has chosen. The player will\
-            have eight attempts to guess the word before they are hanged. Good Luck!\n")
+            print("""
+Instructions
+ Hangman World is a word guessing game and as the
+name suggests the player will be asked to guess the name of the
+place in the world which the computer has chosen. The player will
+have eight attempts to guess the word before they are hanged. 
+Good Luck!         """)
         elif start_choice == "3":
-            print("quitting game bye")
+            print("Quitting game bye")
             exit()
         else:
             print("you have not choose one of the selections\
