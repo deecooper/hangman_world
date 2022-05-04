@@ -254,6 +254,7 @@ def welcome():
     This function gives the user the option to play the game,
     read instructions, look at the high scores and exit the game
     """
+    
     while True:
         welcome_msg = "Hello and welcome to Hangman\
         World please select one of the following \
@@ -273,10 +274,11 @@ def welcome():
         
         if start_choice == "1":
             print("You have choose play game")
-            word = get_word()
+            play_game()
             break
         elif start_choice == "2":
-    
+            print("------------------------------")
+            print("\n")
             print("Hangman World is a word guessing game and as the\
             name suggests the player will be asked to guess the name of the\
             place in the world which the computer has chosen. The player will\
@@ -285,13 +287,19 @@ def welcome():
             print(data)
         elif start_choice == "4":
             print("quitting game bye")
-            sys(exit)
+            exit()
         else:
             print("you have not choose one of the selections\
             please try again")
 
             #try statement for anything that isnt 1,2,3,4 and isnt a number
 
+def main():
+    welcome()
+
+
+if __name__ == "__main__":
+    main()
     
 
-welcome()
+
