@@ -3,19 +3,12 @@ from collections import Counter
 
 def get_word():
     """ Returns a secret word to guess """
-    word_list = """europe america africa australia asia antartica 
-    ireland england russia china india japan korea spain italy 
-    portugal france thailand turkmenistan singapore brazil """
+    word_list = """europe america africa australia asia antartica
+ireland england russia china india japan korea spain italy
+portugal france thailand turkmenistan singapore brazil """
     word_list = word_list.split(' ')
     chosen_word = random.choice(word_list)
     return chosen_word
-
-def name():
-    name = input("Enter your name:  ")
-    print(f"Hello {name} welcome to Hangman World")
-    print("Lets Begin!")
-    print("----------------------------")
-    play_game()
 
 def play_game():
     word = get_word()
@@ -34,7 +27,7 @@ def play_game():
 
             print()
             chances -= 1
-            print(f"You have {chances} left")
+            print(f"You have {chances} chances left to guess the word")
 
             try:
                 guess = str(input('Enter a letter to guess:  '))
@@ -50,9 +43,9 @@ def play_game():
                 print('You already guessed this letter wiseguy!!')
                 guessed_letters.append(letters)
                 print(guessed_letters)
-
-                
+           
                 continue
+
 
             # guessed letter is correct
 
@@ -74,7 +67,7 @@ def play_game():
                     is_correct = True
                     play_again()
                     break
-                    break
+                    
                 else:
                     print('_', end = ' ')
 
@@ -98,6 +91,16 @@ def play_game():
     except KeyboardInterrupt:
         print('Bye bye')
         exit()
+    
+def name():
+    """
+    This function allows users to input their name it also calls the play game function
+    """
+    name = input("Enter your name:  ")
+    print(f"Hello {name} welcome to Hangman World")
+    print("Lets Begin!")
+    print("----------------------------")
+    play_game()
 
 def play_again():
     """
@@ -125,13 +128,15 @@ def welcome():
     
     while True:
         welcome_msg = """ 
+-----------------Hangman World-----------------
+
 Hello and welcome to Hangman World please select one of 
 the following options by typing a number (1,2,3)
 Type 1 to start the game, 2 for the Instructions 
-and 3 for exit
+and 3 to exit the game
         """
         print(welcome_msg)
-        print("-----------------------------")
+        print("-----------------------------------------------")
         play = "1. Play Game"
         print(play)
         instructions = "2. Instructions"
@@ -142,14 +147,15 @@ and 3 for exit
         
         if start_choice == "1":
             print("You have selected Play Game")
-            play_game()
+            name()
             break
         elif start_choice == "2":
             print("-----------------------------")
             print("\n")
             print("""
-Instructions
- Hangman World is a word guessing game and as the
+-----------------Instructions-----------------
+
+Hangman World is a word guessing game and as the
 name suggests the player will be asked to guess the name of the
 place in the world which the computer has chosen. The player will
 have eight attempts to guess the word before they are hanged. 
@@ -158,17 +164,13 @@ Good Luck!         """)
             print("Quitting game bye")
             exit()
         else:
-            print("you have not choose one of the selections\
-            please try again")
-
-            #try statement for anything that isnt 1,2,3,4 and isnt a number
+            print("Wrong input please type in 1,2 or 3")
 
 def main():
     """
     main function to call the welcome function to greet players
     """
     welcome()
-
 
 if __name__ == "__main__":
     main()
