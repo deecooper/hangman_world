@@ -31,7 +31,19 @@ Add in a list for wrong letters guessed already
 Add in a list of countries that have previously been guessed
 Add in the hangman pictures everytime a user gets the letter wrong
 
-<h2 align> Flowchart </h2>
+<h2 align="center"> Flowchart </h2>
 
 <img src="assests/docs/flowchart.JPG">
+
+<h2 align="center"> Testing </h2>
+
+I have tested my project by doing the following
+- Running my project through Pep8 online and fixing any errors
+- Playing my projct muliple times to check for errors
+- Putting the wrong data into the input field to check if my code is working
+
+<h2 align ="center"> Bugs </h2>
+ - You can enter the wrong letter in twice
+ - The counter goes down to 0 and tell the user they have less lives than they do
+ 
 
