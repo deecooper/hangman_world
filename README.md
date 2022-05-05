@@ -45,5 +45,9 @@ I have tested my project by doing the following
 <h2 align ="center"> Bugs </h2>
  - You can enter the wrong letter in twice
  - The counter goes down to 0 and tell the user they have less lives than they do
+
+ <h2 align ="center"> Validator Testing </h2>
+ No errors were found on Pep8 online http://pep8online.com/checkresult
  
+
 
