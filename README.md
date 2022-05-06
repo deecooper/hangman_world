@@ -49,5 +49,5 @@ I have tested my project by doing the following
  <h2 align ="center"> Validator Testing </h2>
  No errors were found on Pep8 online <a href ="http://pep8online.com/checkresult">Pep8 link</a>
  
-
+<h2 align="center"> Credits </h2>
 

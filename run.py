@@ -4,8 +4,8 @@ from collections import Counter
 
 def get_word():
     """ Returns a secret word to guess """
-    word_list = """europe america africa australia asia antartica 
-ireland england russia china india japan korea spain italy portugal 
+    word_list = """europe america africa australia asia antartica
+ireland england russia china india japan korea spain italy portugal
 france thailand turkmenistan singapore brazil """
     word_list = word_list.split(' ')
     chosen_word = random.choice(word_list)
