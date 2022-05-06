@@ -47,7 +47,7 @@ I have tested my project by doing the following
  - The counter goes down to 0 and tell the user they have less lives than they do
 
  <h2 align ="center"> Validator Testing </h2>
- No errors were found on Pep8 online http://pep8online.com/checkresult
+ No errors were found on Pep8 online <a href ="http://pep8online.com/checkresult">Pep8 link</a>
  
 
 

@@ -43,7 +43,7 @@ def play_game():
 
             elif guess in letters:
                 print('You already guessed this letter wiseguy!!')
-                guessed_letters.append(letters)
+                guessed_letters.append(guess)
                 print(guessed_letters)
 
                 continue
@@ -101,7 +101,7 @@ def name():
     name = input("Enter your name:\n")
     print(f"Hello {name} welcome to Hangman World")
     print("Lets Begin!")
-    print("----------------------------")
+    print("-------------------------------------------")
     play_game()
 
 
@@ -160,10 +160,10 @@ and 3 to exit the game
             print("""
 -----------------Instructions-----------------
 
-Hangman World is a word guessing game and as the
+Hangman World is a word guessing game.  As the
 name suggests the player will be asked to guess the name of the
 place in the world which the computer has chosen. The player will
-have eight attempts to guess the word before they are hanged.
+have many attempts to guess the word before they are hanged.
 Good Luck!""")
         elif start_choice == "3":
             print("Quitting game bye")
